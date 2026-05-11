@@ -273,18 +273,3 @@ body{
     }
 
 }
-
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: v.$Green200;
-  color: #fff;
-  padding: 10px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 0; 
-  outline: none;
-}
