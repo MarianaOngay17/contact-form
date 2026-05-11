@@ -4,49 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="css/styles.css">
+
   <title>Frontend Mentor | Contact form</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
-  Contact Us
+  <form class="form">
+    <fieldset>
+      <legend class="form__title">Contact Us</legend>
 
-  First Name
-  This field is required
+      <div class="form__username">
 
-  Last Name
-  This field is required
+        <div class="form__firstname">
+          <label for="first-name">First Name <span class="form__required"></span></label>
+          <input type="text" id="first-name" name="firstname" required >
+          <span class="form__error hidden" id="first-name-error">This field is required</span>
+        </div> <!--.form__firstname-->
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+        <div class="form__lastname">
+          <label for="last-name"> Last Name <span class="form__required"></span></label>
+          <input type="text" id="last-name" name="lastname" required >
+          <span class="form__error hidden" id="last-name-error">This field is required</span>
+        </div> <!--form__lastname-->
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+      </div> <!--.form__username-->
 
-  Message
-  This field is required
+      <div class="form__email">
+          <label for="email"> Email Address <span class="form__required"></span></label>
+          <input type="email" id="email" name="enmail" required>
+          <span class="form__error hidden" id="email-error">Please enter a valid email address</span>
+      </div> <!--.form__email-->
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+      <div class="form__query">
+        <label for="querytype">Query Type <span class="form__required"></span></label>
 
-  Submit
+        <div class="form__query-option">
+          <input type="radio" id="general" name="querytype" value="General Enquiry">
+          <label for="general">General Enquiry</label>
+        </div><!--.form__query-option-->
+        <div class="form__query-option">
+          <input type="radio" id="support" name="querytype" value="Support Request">
+          <label for="support">Support Request</label>
+        </div><!--.form__query-option-->
 
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+        <span class="form__error hidden" id="query-error">Please select a query type</span>
+
+      </div> <!--.form__query-->
+
+      <div class="form__message">
+        <label for="message">Message <span class="form__required"></span></label>
+        <textarea name="message" id="message"  required></textarea>
+        <span class="form__error hidden" id="message-error">This field is required</span>
+      </div> <!--.form__message-->
+
+      <div class="form__consent">
+        <div class="form__consent-input">
+          <input type="checkbox" id="consent-cb" name="consenct" value="true" required>
+          <label for="consent-cb">I consent to being contacted by the team <span class="form__required"></span></label>
+        </div>
+        <span class="form__error hidden" id="consent-error">To submit this form, please consent to being contacted</span>
+      </div><!--.form__consent-->
+
+      <button type="submit" value="Submit" class="form__submit">Submit</button>
+
+    </fieldset> 
+
+  </form> <!--.form-->
+
+  <div class="success hidden" tabindex="-1">
+    <div class="success__title">
+      <img src="assets/images/icon-success-check.svg" alt="">
+      <p>Message Sent!</p>
+    </div> <!--.success__title-->
+    <div class="success__message">
+      Thanks for completing the form. We'll be in touch soon!
+    </div>
+  </div> <!--.success-->
   
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/MarianaOngay17">Mariana Ongay Ortiz</a>.
   </footer>
+
+  <script src="js/keyMovility.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,275 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'sass:color';
+
+body{
+    font-family: v.$fuente_principal;
+    background-color: v.$Green200;
+
+    height: 100vh;
+    margin: 7rem 1rem 1rem 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.form{
+    background-color: v.$White;
+    padding: 1.5rem;
+    border-radius: 20px;
+
+    @include m.tablet{
+        width: 40rem;
+    }
+
+    fieldset{
+        border: none;
+    }
+
+    label{
+        color: v.$Grey900;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    &__query-option{
+        border: 1px solid grey;
+        border-radius: 10px;
+        height: 2.5rem;
+
+        &:focus{
+            outline: none;
+            border: 2px solid v.$Green600;
+        }
+
+        &:hover{
+            cursor: pointer;
+            border: 2px solid v.$Green600;
+        }
+
+    }
+
+    textarea{
+        border: 1px solid grey;
+        border-radius: 10px;
+        height: 15rem;
+
+        &:focus{
+            outline: none;
+            border: 2px solid v.$Green600;
+        }
+
+        &:hover{
+            cursor: pointer;
+            border: 2px solid v.$Green600;
+        }
+
+        @include m.tablet{
+            height: 6rem;
+        }
+    }
+
+    &__query{
+        @include m.tablet{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+
+            label{
+                grid-column: 1/3;
+            }
+
+        }
+    }
+
+    &__query-option{
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        input{
+            margin-left: 1rem;
+        }
+
+        &:has(input:checked) {
+            background-color: v.$Green200; 
+            border-color: v.$Green600;
+        }      
+    }
+
+    input[type="radio"]{
+        accent-color: v.$Green600; /* Aquí pones tu color hexadecimal */
+        transform: scale(1.5);
+    }
+
+    &__title{
+        font-size: 2rem;
+        color: v.$Grey900;
+        font-weight: v.$bold;
+        margin: 1rem 0;
+    }
+
+    &__required::after{
+        content: '*';
+        color: v.$Green600;
+        font-size: 1rem;
+    }
+
+    &__username{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include m.tablet{
+           display: grid;
+           grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__firstname,
+    &__lastname,
+    &__email, 
+    &__message
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__email,
+    &__query,
+    &__message
+    {
+        margin-top: 1.5rem;
+    }
+
+    &__consent{
+        margin: 2rem 0;
+    }
+
+    &__consent-input{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        input[type="checkbox"] {
+            accent-color: v.$Green600; 
+            width: 1.2rem;         
+            height: 1.2rem;
+            cursor: pointer;
+
+            &:focus{
+                outline: 2px solid v.$Green600;
+                outline-offset: 4px;
+            }
+        }
+    }
+    
+    &__error{
+       display: flex;
+       margin: 0.5rem 0;
+       color: v.$Red;
+       font-size: 0.9rem;
+       font-weight: v.$regular;
+    }
+
+    &__submit{
+        appearance: none;
+        -moz-appearance: none;
+
+        padding: 1rem;
+        background-color: v.$Green600;
+        color: v.$White;
+        border: none;
+        border-radius: 10px;
+        width: 100%;
+        text-align: center;
+        font-family: v.$fuente_principal;
+        font-size: 1.2rem;
+        font-weight: v.$bold;
+        margin-top: 1rem;
+
+        &:hover{
+            cursor: pointer;
+            background-color: color.adjust(v.$Green600, $lightness: -10%);
+        }
+
+        &:focus{
+            outline: 1px solid v.$Green600;
+            outline-offset: 4px;
+            background-color: color.adjust(v.$Green600, $lightness: -10%);
+        }
+
+
+    }
+    
+}
+
+.success{
+    position: absolute;
+    top: 0;
+    margin-top: 1rem;
+
+    background-color: v.$Grey900;
+    color: v.$White;
+    border-radius: 10px;
+    padding: 1.5rem;
+
+    &:focus{
+        outline: 1px solid v.$Green600;
+        outline-offset: 4px;
+    }
+
+    &__title{
+        display: flex;
+        align-items: center;
+        gap: 1rem;  
+        margin-bottom: 1rem;    
+        font-weight: v.$bold;
+
+        p{
+            margin: 0;
+        }
+    }
+
+    &__message{
+        color: v.$Green200;
+        font-weight: v.$regular;      
+    }
+    
+}
+
+.error {
+    border: 1px solid red !important; 
+}
+
+.hidden{
+    display: none;
+}
+
+.attribution{
+    margin-bottom: 0;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: v.$Grey900;
+
+    a {
+        color: v.$Red;
+
+        &:focus{
+            outline: 2px solid v.$Red;
+            outline-offset: 2px;
+        }
+    }
+
+}
